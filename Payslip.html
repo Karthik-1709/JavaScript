@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      table {
+        margin: 3px;
+        border-collapse: collapse;
+        /* border: 2px collapse; */
+      }
+      th{
+    font-weight: bold;
+    padding: 10px;
+        border: 2px solid black;
+      }
+      td{
+        font-weight: bold;
+    padding: 10px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div id="www">
+        <label for="">Basic Pay</label>
+        <input type="text" id="nine" onkeyup="calcii()" />
+      </div>
+      <div>
+        <label for="">HRA</label>
+        <input type="text" id="ten" />
+      </div>
+      <div>
+        <label for="">DA</label>
+        <input type="text" id="eleven" />
+      </div>
+      <div>
+        <label for="">Travelling</label>
+        <input type="text" id="twelve" />
+      </div>
+      <div>
+        <label for="">PF</label>
+        <input type="text" id="thirteen" />
+      </div>
+      <div>
+        <label for="">Gross</label>
+        <input type="text" id="fifteen" />
+        <label for="">Net Salery</label>
+        <input type="text" id="sixteen" />
+      </div>
+    </form>
+    <h6>Table:</h6>
+    <table border="3">
+        <thead>
+            <th>BP</th>
+            <th>HRA</th>
+            <th>DA</th>
+            <th>TRA</th>
+            <th>PF</th>
+            <th>GROSS</th>
+            <th>NET</th>
+        </thead>
+      <tbody id="seventeen"></tbody>
+    </table>
+    <script>
+      let calcii = () => {
+        let bp = parseInt(document.getElementById("nine").value);
+        let hra = (document.getElementById("ten").value = bp * (10 / 100));
+        let da = (document.getElementById("eleven").value = bp * (5 / 100));
+        let tra = (document.getElementById("twelve").value = bp * (15 / 100));
+        let pf = (document.getElementById("thirteen").value = bp * (15 / 100));
+        hra = parseInt(hra);
+        da = parseInt(da);
+        tra = parseInt(tra);
+        pf = parseInt(pf);
+        let gross = (document.getElementById("fifteen").value =
+          bp + hra + da + tra + pf);
+        let net = (document.getElementById("sixteen").value = gross - pf);
+        document.getElementById("seventeen").innerHTML = `<tr>
+      <td>${bp}</td>
+      <td>${hra}</td>
+      <td>${da}</td>
+      <td>${tra}</td>
+      <td>${pf}</td>
+      <td>${gross}</td>
+      <td>${net}</td>
+    </tr>`;
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
